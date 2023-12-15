@@ -1,0 +1,74 @@
+
+#Home .navBar{
+    display: flex;
+    justify-content: space-between;
+
+    padding: 5px 24px;
+    background: rgb(0, 238, 255);
+    align-items: center;
+}
+
+#Home .navBar strong{
+    font-size: 20px;
+}
+
+#Home ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+#Home nav ul a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    padding: 0 10px;
+    font-weight: 500;
+    transition: 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+#Home nav ul .user{
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    border-left: 1px solid #000;
+    padding-left: 30px;
+    cursor: pointer;
+
+}
+
+#Home a:hover{
+    opacity: 0.7;
+    border-bottom: 2px solid #000;   
+}
+
+#Home article{
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 24px;
+}
+
+#Home article .data_user{
+    margin-top: 5rem;
+    display: flex;
+}
+
+#Home article .textUser {
+    margin-top: 3rem;
+}
+
+#Home .data_user li {
+    list-style: none;
+    margin: 0 10px;
+    padding: 0 10px;
+    font-weight: 600;
+}
+
+#Home .data_user li span{
+    color: blue    
+}
