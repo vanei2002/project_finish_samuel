@@ -72,3 +72,33 @@
 #Home .data_user li span{
     color: blue    
 }
+
+
+#Home .data_user li span:hover{
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    #Home .navBar{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #Home .navBar strong{
+        margin-bottom: 10px;
+    }
+
+    #Home ul{
+        margin-top: 10px;
+    }
+
+    #Home article .data_user{
+        flex-direction: column;
+    }
+
+    #Home article .data_user li{
+        margin: 10px 0;
+    }
+}
+
