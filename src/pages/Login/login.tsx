@@ -1,13 +1,23 @@
 import { useForm } from 'react-hook-form';
 import './login.css';
 import { Link } from 'react-router-dom';
+import { ConnectServer } from '../../server/connectServer';
 
 
 export default function Login() {
 
     const {register, handleSubmit} = useForm();
-    const authUser = (e: object) =>{
-        console.log(e)
+    const authUser = async ({email, password}: {
+        email: string,
+        password: string
+    }) =>{
+
+
+        const data = await ConnectServer().sing(email, password)
+
+        if(data.status === 201){
+            window.location.href = '/home'
+        }
     }
 
     return (

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:3333",
 });
 
 interface User {
@@ -10,10 +10,17 @@ interface User {
 }
 
 export const ConnectServer = () => ({
-    sing : async ({ email, password }: User)=> {
-        const response = await api.post("/sing", {
+    sing : async (email: string, password : string)=> {
+        const response = await api.post("auth/sing", {
             email,
             password,
+        });
+        return response.data;
+    },
+
+    create : async (user: object)=> { 
+        const response = await api.post("auth/create", {
+            ...user,
         });
         return response.data;
     }

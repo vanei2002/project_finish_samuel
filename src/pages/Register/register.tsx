@@ -1,11 +1,28 @@
 import { useForm } from 'react-hook-form';
 import './register.css';
 import { Link } from 'react-router-dom';
+import { ConnectServer } from '../../server/connectServer';
 
 
 export default function Register() {
 
     const {register, handleSubmit} = useForm();
+
+    const createUser = async ({name,latsName, email, password}: {
+        name: string,
+        latsName: string,
+        email: string,
+        password: string
+    
+    }) =>{
+
+        const data = await ConnectServer().create({name, latsName, email, password})
+        
+        if(data.status === 201){
+            window.location.href = '/'
+        }
+    }
+    
 
     return (
         <main id="register">
@@ -19,7 +36,7 @@ export default function Register() {
                         <p>Make your registration now</p>
                     </div>
 
-                    <form onSubmit={handleSubmit((data) => console.log(data))}>
+                    <form onSubmit={handleSubmit(createUser)}>
                         <div className='nameAndLats'>
                             <div >
                                 <label htmlFor="name">Nome</label>
