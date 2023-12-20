@@ -56,6 +56,9 @@
 #Home article .data_user{
     margin-top: 5rem;
     display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
 }
 
 #Home article .textUser {

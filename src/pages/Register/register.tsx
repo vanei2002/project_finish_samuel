@@ -8,15 +8,15 @@ export default function Register() {
 
     const {register, handleSubmit} = useForm();
 
-    const createUser = async ({name,latsName, email, password}: {
+    const createUser = async ({name,lastName, email, password}: {
         name: string,
-        latsName: string,
+        lastName: string,
         email: string,
         password: string
     
     }) =>{
 
-        const data = await ConnectServer().create({name, latsName, email, password})
+        const data = await ConnectServer().create({name, lastName, email, password})
         
         if(data.status === 201){
             window.location.href = '/'
@@ -43,8 +43,8 @@ export default function Register() {
                                 <input type="name" id="name" {...register('name')} />
                             </div>
                             <div>
-                                <label htmlFor="latsName">LatsName</label>
-                                <input type="latsName" id="latsName" {...register('latsName')} />
+                                <label htmlFor="lastName">LastName</label>
+                                <input type="lastName" id="lastName" {...register('lastName')} />
                             </div>
                         </div>
                         <div className="input-block">

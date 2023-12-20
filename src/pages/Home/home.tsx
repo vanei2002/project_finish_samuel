@@ -1,12 +1,15 @@
 
+import { useContextGlobas } from '../../context/contextpage';
 import './home.css'
 export default function Home() {
 
-    const {email, name, password, latsName} = {
-        name: 'João',
-        latsName: 'Samuel',
-        email: 'samuel@gmail.com',
-        password: '123456',
+    const {user} = useContextGlobas()
+
+    const {name,  email, password, lastName} = {
+        name: user?.name,
+        email: user?.email,
+        lastName: user?.lastName,
+        password: user?.password
     }
 
     return (
@@ -20,10 +23,12 @@ export default function Home() {
                     <a href="">Sobre</a>
                     <a href="">Parcerias</a>
                     <a href="">Contato</a>
+                    <a onClick={()=> window.location.href="/"} href='#'>Sair</a>
 
                     <div className="user">
-                        <span onClick={()=> window.location.href="/"}>{`${name} ${latsName}`}</span>
+                        <span >{`${name} ${lastName}`}</span>
                     </div>
+
                 </ul>
             </nav>
 
@@ -38,7 +43,7 @@ export default function Home() {
 
                     <ul className='data_user'>
                         <li>Nome: <span>{name}</span></li>
-                        <li>LatsName: <span>{latsName}</span></li>
+                        <li>LastName: <span>{lastName}</span></li>
                         <li>Email: <span> {email}</span></li>
                         <li>Password: <span>{password}</span></li>
                     </ul> 

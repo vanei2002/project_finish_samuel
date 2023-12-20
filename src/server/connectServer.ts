@@ -4,10 +4,7 @@ const api = axios.create({
     baseURL: "http://localhost:3333",
 });
 
-interface User {
-    email: string;
-    password: string;
-}
+
 
 export const ConnectServer = () => ({
     sing : async (email: string, password : string)=> {

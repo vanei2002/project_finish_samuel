@@ -2,9 +2,12 @@ import { useForm } from 'react-hook-form';
 import './login.css';
 import { Link } from 'react-router-dom';
 import { ConnectServer } from '../../server/connectServer';
+import { useContextGlobas } from '../../context/contextpage';
 
 
 export default function Login() {
+
+    const {setUser} = useContextGlobas()
 
     const {register, handleSubmit} = useForm();
     const authUser = async ({email, password}: {
@@ -12,10 +15,15 @@ export default function Login() {
         password: string
     }) =>{
 
-
         const data = await ConnectServer().sing(email, password)
+        const {validateData} = data.data
 
         if(data.status === 201){
+
+
+
+            localStorage.setItem('user', JSON.stringify(validateData))
+            setUser(validateData)
             window.location.href = '/home'
         }
     }
